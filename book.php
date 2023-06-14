@@ -29,7 +29,7 @@
           <img src="assets/images/logo.png" alt="">
         </a>
         <li class="nav-item">
-          <a class="nav-link" href="certificate.php">Сертификат</a>
+          <a class="nav-link" href="birthday.php">День рождение</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="book.php">Забронировать игру</a>
@@ -144,7 +144,7 @@
       <ul class="nav col-md-4 justify-content-end">
         <a class="nav-link active text-reset" aria-current="page" href="#">О нас</a>
         <a class="nav-link text-reset" href="games.php">Наши игры</a>
-        <a class="nav-link text-reset" href="certificate.php">Сертификат</a>
+        <a class="nav-link text-reset" href="certificate.php">День рождение</a>
         <a class="nav-link text-reset" href="book.php">Забронировать игру</a>
       </ul>
     </footer>

@@ -104,13 +104,24 @@
           <div class="col-md-5">
             <div class="home-hero-header">
               <div class="card-body">
-                <h1 class="card-title pricing-card-title text-dark">VR Квест</h1>
-                <ul class="list-unstyled mt-3 mb-4 text-dark">
-                  <i class="bi bi-people"></i>
-                  <li>напишу</li>
-                  <li>напишу</li>
-                  <li>напишу</li>
-                </ul>
+                <h1 class="card-title pricing-card-title text-dark mb-3">VR Квест</h1>
+                <div class="pricing">
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Жанр: Sci-Fi</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Сеанс: 60 мин</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Игроков: 1-8</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Возраст: 12+</span>
+                </li>
+                
+              </ul>
+            </div>
                 <button type="button" class="btn btn-dark btn-lg">Забронировать игру</button>
               </div>
             </div>
@@ -128,12 +139,21 @@
             <div class="home-hero-header">
               <div class="card-body">
                 <h1 class="card-title pricing-card-title text-dark">VR Шутер</h1>
-                <ul class="list-unstyled mt-3 mb-4 text-dark">
-                  <i class="bi bi-people"></i>
-                  <li>напишу</li>
-                  <li>напишу</li>
-                  <li>напишу</li>
-                </ul>
+                <ul class="list-unstyled">
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Жанр: Команда на Команду</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Сеанс: 60 мин</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Игроков: 1-20</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Возраст: 8+</span>
+                </li>
+                
+              </ul>
                 <button type="button" class="btn btn-dark btn-lg">Забронировать игру</button>
               </div>
             </div>
@@ -151,13 +171,22 @@
             <div class="home-hero-header">
               <div class="card-body">
                 <h1 class="card-title pricing-card-title text-dark">VR Приключение</h1>
-                <ul class="list-unstyled mt-3 mb-4 text-dark">
-                  <li>напишу</li>
-                  <li>напишу</li>
-                  <li>напишуt</li>
-                  <li>напишу</li>
-                </ul>
-                <button type="button" class="btn btn-dark btn-lg">Забронировать игру</button>
+                <ul class="list-unstyled">
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Жанр: Команда на Команду</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Сеанс: 60 мин</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Игроков: 1-20</span>
+                </li>
+                <li class="mb-3">
+                  <span class="small ms-3 text-dark fs-3">Возраст: 6+</span>
+                </li>
+                
+              </ul>
+                <a class="btn btn-dark btn-lg" href="book.php" role="button">Забронировать игру</a>
               </div>
             </div>
           </div>
