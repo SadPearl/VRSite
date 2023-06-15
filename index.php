@@ -1,3 +1,8 @@
+<?php 
+require "vendor/db.php";
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,36 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-  <div class="container-fluid">
-    <a class="navbar-brand d-md-none" href="#">
-      <img src="assets/images/logo.png" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">О нас</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="games.php">Наши игры</a>
-        </li>
-        <a class="navbar-brand d-none d-md-block" href="#">
-          <img src="assets/images/logo.png" alt="">
-        </a>
-        <li class="nav-item">
-          <a class="nav-link" href="certificate.php">Сертификат</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="book.php">Забронировать игру</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php require "components/header.php" ?>
 <section class=" py-4">
   <div class="container my-5">
     <div class="row justify-content-center p-0 p-sm-5">
@@ -46,7 +22,7 @@
         <p class="lead text-dark-50 px-2 mb-4">
           СО СВОБОДНЫМ ПЕРЕДВИЖЕНИЕМ
         </p>
-        <button type="button" class="btn btn-outline-dark btn-lg px-4 m-0 mb-3 mx-sm-3">Забронировать игру</button>
+        <a href="book.php" class="btn btn-outline-dark btn-lg px-4 m-0 mb-3 mx-sm-3">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -104,25 +80,14 @@
           <div class="col-md-5">
             <div class="home-hero-header">
               <div class="card-body">
-                <h1 class="card-title pricing-card-title text-dark mb-3">VR Квест</h1>
-                <div class="pricing">
-              <ul class="list-unstyled">
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Жанр: Sci-Fi</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Сеанс: 60 мин</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Игроков: 1-8</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Возраст: 12+</span>
-                </li>
-                
-              </ul>
-            </div>
-                <button type="button" class="btn btn-dark btn-lg">Забронировать игру</button>
+                <h1 class="card-title pricing-card-title text-dark">VR Квест</h1>
+                <ul class="list-unstyled mt-3 mb-4 text-dark">
+                  <i class="bi bi-people"></i>
+                  <li>напишу</li>
+                  <li>напишу</li>
+                  <li>напишу</li>
+                </ul>
+                <a href="book.php" class="btn btn-dark btn-lg">Забронировать игру</a>
               </div>
             </div>
           </div>
@@ -139,21 +104,12 @@
             <div class="home-hero-header">
               <div class="card-body">
                 <h1 class="card-title pricing-card-title text-dark">VR Шутер</h1>
-                <ul class="list-unstyled">
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Жанр: Команда на Команду</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Сеанс: 60 мин</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Игроков: 1-20</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Возраст: 8+</span>
-                </li>
-                
-              </ul>
+                <ul class="list-unstyled mt-3 mb-4 text-dark">
+                  <i class="bi bi-people"></i>
+                  <li>напишу</li>
+                  <li>напишу</li>
+                  <li>напишу</li>
+                </ul>
                 <button type="button" class="btn btn-dark btn-lg">Забронировать игру</button>
               </div>
             </div>
@@ -171,22 +127,13 @@
             <div class="home-hero-header">
               <div class="card-body">
                 <h1 class="card-title pricing-card-title text-dark">VR Приключение</h1>
-                <ul class="list-unstyled">
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Жанр: Команда на Команду</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Сеанс: 60 мин</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Игроков: 1-20</span>
-                </li>
-                <li class="mb-3">
-                  <span class="small ms-3 text-dark fs-3">Возраст: 6+</span>
-                </li>
-                
-              </ul>
-                <a class="btn btn-dark btn-lg" href="book.php" role="button">Забронировать игру</a>
+                <ul class="list-unstyled mt-3 mb-4 text-dark">
+                  <li>напишу</li>
+                  <li>напишу</li>
+                  <li>напишуt</li>
+                  <li>напишу</li>
+                </ul>
+                <button type="button" class="btn btn-dark btn-lg">Забронировать игру</button>
               </div>
             </div>
           </div>

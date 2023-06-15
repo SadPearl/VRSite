@@ -1,7 +1,41 @@
-<?php 
-require "vendor/db.php";
+<?php
 session_start();
+require "vendor/db.php";
+$date = $_POST['date'];
+$time = $_POST['time'];
+$count_people = $_POST['number'];
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+$email = $_POST['email'];
+$cost = 0;
+$count_cost = 0;
+
+if ($time >= "11:00" && $time <= "16:00") {
+    $cost = 600;
+    $count_cost = $cost * $count_people;
+}
+else if($time >= "16:00" && $time <= "20:00") {
+    $cost = 800; 
+    $count_cost = $cost * $count_people;
+}
+
+$count = mysqli_query($link,
+"SELECT SUM(`count_people`)
+FROM `booking`
+WHERE `time` = '$time'
+AND `date` = '$date'
+GROUP BY `time`
+HAVING count(time) > 0 ");
+$count_query = mysqli_fetch_assoc($count);
+if(isset($count_query)):
+$count_int = implode(",", $count_query);
+$freedom = 30 - $count_int;
+else:
+    $freedom = 30;    
+endif;
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +46,9 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-<?php require "components/header.php" ?>
-<br><br><br><br>
-<h2 class="mb-4 text-center display-4">ВЫБЕРИ СВОЁ ПРИКЛЮЧЕНИЕ</h2>
-<section class="section-booking pt-5 pb-5">
-    <div class="container pt-5">
-        <div class="row">
-            <div class="col-lg-6 pb-5">
-                <div class="text-center pt-5">
-                    <span class="tit2 text-center">
 
-                    </span>
-
-                    <h3 class="tit3 text-center mb-5 mt-1">
-
-                    </h3>
-                </div>
-
-                <form class="wrap-form-booking" action="applicaion.php" method="post">
+<h1>Проверьте правильность вашей заявки</h1>
+<form class="wrap-form-booking" action="bookAction.php" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <!-- Date -->
@@ -39,7 +58,7 @@ session_start();
 
                             <div class="position-relative txt10 mt-2 mb-4">
 
-                                <input type="date" class="form-control" name="date" placeholder="Дата" required>
+                                <input type="date" class="form-control" value="<?=$_POST['date']?>" name="date" required >
                             </div>
 
                             <!-- Time -->
@@ -49,7 +68,7 @@ session_start();
 
                             <div class="mt-2 mb-4">
                                 <!-- Select2 -->
-                                <input type="text" class="form-control" list="time_list" name="time" placeholder="Время" min="11:00" max="20:00" required>
+                                <input type="text" class="form-control" list="time_list" value="<?=$_POST['time']?>" name="time" placeholder="Время" min="11:00" max="20:00" required>
                                 <datalist id="time_list">
                                   <option value="11:00" label="11:00">
                                   <option value="12:00" label="12:00">
@@ -71,7 +90,7 @@ session_start();
 
                             <div class="position-relative txt10 mt-2 mb-4">
                                 <!-- Select2 -->
-                                <input type="number" class="form-control" value="1" name="number" placeholder="Кол-во" min="1" max="30" required>
+                                <input type="number" value="<?=$count_people ?>" class="form-control" name="number" min="1" max="30" required>
                             </div>
                         </div>
 
@@ -82,7 +101,7 @@ session_start();
                             </span>
 
                             <div class="position-relative mt-2 mb-4">
-                                <input class="form-control" type="text" name="name" placeholder="Name" required>
+                                <input class="form-control" value="<?=$name ?>" type="text" name="name" required >
                             </div>
 
                             <!-- Phone -->
@@ -91,7 +110,7 @@ session_start();
                             </span>
 
                             <div class="position-relative txt10 mt-2 mb-4">
-                                <input class="form-control tel"  type="text" name="phone" placeholder="Phone" required>
+                                <input class="form-control tel" value="<?=$phone ?>"  type="text" name="phone" required>
                             </div>
 
                             <!-- Email -->
@@ -100,43 +119,25 @@ session_start();
                             </span>
 
                             <div class="position-relative txt10 mt-2 mb-4">
-                                <input class="form-control" type="email" name="email" placeholder="Email" required>
+                                <input class="form-control" value="<?=$email ?>" type="email" name="email" required>
                             </div>
                         </div>
                     </div>
-
+                        <input type="hidden" value="<?=$count_cost?>" name="count_cost" >
                     <div class="col-lg-12 mt-5 text-center">
                         <!-- Button3 -->
                         <button type="submit" class="btn btn-dark">Забронировать</button>
                     </div>
                 </form>
-            </div>
 
-            <div class="col-lg-6 pb-5 pt-5">
-                <div style="padding-top:50px;" class="text-center m-auto ">
-                    <img style="width:100%; " src="./assets/images/peopleplay.jpg" alt="img-people">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Парк виртуальной реальности</p>
-  
-      <a class="col-md-4 d-flex align-items-center justify-content-center mb-1 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img src="assets/images/logo.png" alt="Логотип">
-      </a>
-  
-      <ul class="nav col-md-4 justify-content-end">
-        <a class="nav-link active text-reset" aria-current="page" href="#">О нас</a>
-        <a class="nav-link text-reset" href="games.php">Наши игры</a>
-        <a class="nav-link text-reset" href="certificate.php">Сертификат</a>
-        <a class="nav-link text-reset" href="book.php">Забронировать игру</a>
-      </ul>
-    </footer>
-  </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
+                <p>Ваша цена <?=$count_cost ?> рублей</p>
+                <?php 
+                    if($freedom > 0):?>
+                    <p>Обратите внимание. Всего свободных мест: <strong> <?=$freedom ?> <strong></p>
+                    <? else: ?>
+                    <p>Мест нет</p>
+                <? endif ?>
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
   <script src="assets/scripts/script.js"></script>
-  </body>
-  </html>
+</body>
+</html>

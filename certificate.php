@@ -1,3 +1,7 @@
+<?php 
+require "vendor/db.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,36 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-  <div class="container-fluid">
-    <a class="navbar-brand d-md-none" href="#">
-      <img src="assets/images/logo.png" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">О нас</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="games.php">Наши игры</a>
-        </li>
-        <a class="navbar-brand d-none d-md-block" href="index.php">
-          <img src="assets/images/logo.png" alt="">
-        </a>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="certificate.php">Сертификат</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="book.php">Забронировать игру</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php require "components/header.php" ?>
 <div class="b-example-divider"></div>
 <div class="bg-dark text-secondary px-4 py-5 text-center">
   <div class="py-5">
@@ -48,7 +23,7 @@
       <p class="fs-5 mb-4">Незабываемое приключение в параллельном мире
         Дарите новые эмоции!</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-outline-light btn-lg px-4">Оставить заявку</button>
+        <a href="book.php" class="btn btn-outline-light btn-lg px-4">Оставить заявку</a>
       </div>
     </div>
     </div>
@@ -84,7 +59,7 @@
             text-secondary
             border-secondary
           "
-          action=""
+          action="applicationActive.php"
         >
           <label class="d-block mb-4">
             <span class="form-label d-block ">Ваше имя</span>
@@ -92,14 +67,15 @@
               name="name"
               type="text"
               class="form-control border-secondary bg-transparent"
-              placeholder=""
+              placeholder="Введите ваше имя"
+              required
             />
           </label>
   
           <label class="d-block mb-4">
             <span class="form-label d-block ">Ваш номер телефона</span>
             <div class="position-relative txt10 mt-2 mb-4">
-                <input class="form-control" type="phone" name="phone" placeholder="+7(900)000-00-00">
+                <input class="form-control tel" type="phone" name="phone" placeholder="+7(900)000-00-00" required>
             </div>
 
           </label>
@@ -108,7 +84,7 @@
           
   
           <div class="mb-3">
-            <button type="button" class="btn btn-outline-dark btn-lg  px-4 m-0 mb-3 mx-auto">Оставить заявку</button>
+            <button type="submit" class="btn btn-outline-dark btn-lg  px-4 m-0 mb-3 mx-auto">Оставить заявку</button>
           </div>
   
           <div class="d-block text-end">
@@ -135,5 +111,6 @@
     </footer>
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js'></script>
+  <script src="assets/scripts/script.js"></script>  
   </body>
   </html>

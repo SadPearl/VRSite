@@ -1,3 +1,7 @@
+<?php
+require "vendor/db.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,36 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-  <div class="container-fluid">
-    <a class="navbar-brand d-md-none" href="#">
-      <img src="assets/images/logo.png" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">О нас</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Наши игры</a>
-        </li>
-        <a class="navbar-brand d-none d-md-block" href="index.php">
-          <img src="assets/images/logo.png" alt="">
-        </a>
-        <li class="nav-item">
-          <a class="nav-link" href="birthday.php">День рождение</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="book.php">Забронировать игру</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php require "components/header.php" ?>
 <br><br>
 <div class="container  py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5 border shadow-lg">
@@ -61,7 +36,7 @@
         Никто не знает, вернетесь ли вы...</p>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-      <a class="btn btn-outline-secondary btn-lg px-4" href="book.php" role="button">Забронировать игру</a>
+        <a href="book.php" class="btn btn-outline-secondary btn-lg px-4">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -88,7 +63,7 @@
         Наподдай противникам в режиме “сам за себя” или проверь друзей на прочность в режиме “команда на команду”.</p>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-      <a class="btn btn-outline-secondary btn-lg px-4" href="book.php" role="button">Забронировать игру</a>
+        <a href="book.php" class="btn btn-outline-secondary btn-lg px-4">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -115,7 +90,7 @@
       <p class="lead">Почувствуйте себя в роли солдат, обороняющих космическую станцию от вооруженных захватчиков. За окном бескрайний космос и дождь из метеоритов. Вы можете перемещаться по станции с помощью порталов, отыскивать новейшие бластеры, щиты и аптечки для восстановления здоровья и научиться ходить по стенам и потолку.</p>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-      <a class="btn btn-outline-secondary btn-lg px-4" href="book.php" role="button">Забронировать игру</a>
+        <a href="book.php" class="btn btn-outline-secondary btn-lg px-4">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -141,7 +116,7 @@
       <p class="lead">Самая увлекательная и интересная игра теперь и в виртуальной реальности. Встречайте новое воплощение игры The Fruit Ninja в привычном додзё и не забывайте: фрукты сами себя не нарежут!</p>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-      <a class="btn btn-outline-secondary btn-lg px-4" href="book.php" role="button">Забронировать игру</a>
+        <a href="book.php" class="btn btn-outline-secondary btn-lg px-4">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -167,7 +142,7 @@
       <p class="lead">Самая увлекательная и интересная игра теперь и в виртуальной реальности. Встречайте новое воплощение игры The Fruit Ninja в привычном додзё и не забывайте: фрукты сами себя не нарежут!</p>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-      <a class="btn btn-outline-secondary btn-lg px-4" href="book.php" role="button">Забронировать игру</a>
+        <a href="book.php" class="btn btn-outline-secondary btn-lg px-4">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -193,7 +168,7 @@
       <p class="lead">Самая увлекательная и интересная игра теперь и в виртуальной реальности. Встречайте новое воплощение игры The Fruit Ninja в привычном додзё и не забывайте: фрукты сами себя не нарежут!</p>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-      <a class="btn btn-outline-secondary btn-lg px-4" href="book.php" role="button">Забронировать игру</a>
+        <a href="book.php" class="btn btn-outline-secondary btn-lg px-4">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -219,7 +194,7 @@
       <p class="lead">Спасите украденные яйца вместе с Редом, Чаком, Бомбой и Синими в новом увлекательном приключении в виртуальной реальности: Angry Birds VR! Путешествуйте по далекому острову, где отдыхают жадные зеленые свиньи.</p>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-        <a class="btn btn-outline-secondary btn-lg px-4" href="book.php" role="button">Забронировать игру</a>
+        <a href="book.php" class="btn btn-outline-secondary btn-lg px-4">Забронировать игру</a>
       </div>
     </div>
   </div>
@@ -235,7 +210,7 @@
     <ul class="nav col-md-4 justify-content-end">
       <a class="nav-link active text-reset" aria-current="page" href="#">О нас</a>
       <a class="nav-link text-reset" href="games.php">Наши игры</a>
-      <a class="nav-link text-reset" href="certificate.php">День рождение</a>
+      <a class="nav-link text-reset" href="certificate.php">Сертификат</a>
       <a class="nav-link text-reset" href="book.php">Забронировать игру</a>
     </ul>
   </footer>
